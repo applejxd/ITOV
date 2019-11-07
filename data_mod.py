@@ -52,11 +52,12 @@ class AbsMassRadius(ABC):
     def plot_mr(self, xi_min: float):
         self.reset_mr()
         self.make_mr_data(xi_min)
-        plt.xlabel("radius [km]")
-        plt.ylabel("mass [m_solar]")
+        plt.xlabel(r"$R$ [km]")
+        plt.ylabel(r"$M$ [$M_\odot$]")
         plt.plot(self.results[2], self.results[1], marker="+")
         if xi_min < 14.5:
             plt.xscale('log')
+            plt.xlabel(r"$\log_{10}R$ [km]")
         plt.show()
 
 

@@ -3,6 +3,8 @@ from abc import ABC, abstractmethod
 from typing import List, Any, Tuple, Union
 
 import matplotlib.pyplot as plt
+import sympy
+
 import numpy as np
 from scipy import interpolate, integrate
 from scipy import optimize
@@ -58,15 +60,14 @@ class EoS:
         p: float = 10. ** zeta
         return p
 
-    def demo_log_eos_plot(self):
+    def demo_log_eos_plot(self) -> None:
         xi_samples = np.arange(0., 16., 0.1)
         zeta_samples = np.frompyfunc(self.zeta_from_xi_modify, 1, 1)(xi_samples)
 
-        plt.xlabel("log10(rho/[g cm^3])")
-        plt.ylabel("log10(p/[dyn cm^2])")
-        plt.plot(xi_samples, zeta_samples, marker='+')
+        plt.xlabel(r"$\log_{10}\left(\dfrac{\rho}{\mathrm{g}/\mathrm{cm}^3}\right)$")
+        plt.ylabel(r"$\log_{10}\left(\dfrac{p}{\mathrm{dyn}/\mathrm{cm}^2}\right)$")
+        plt.plot(xi_samples, zeta_samples)
         plt.show()
-        # plt.savefig("EoS.png")
 
 
 class AbsIEoS(ABC, EoS):
@@ -167,9 +168,9 @@ class AbsPEnthalpyEoS(ABC):
 
         plt.xscale("log")
         plt.yscale("log")
-        plt.xlabel("log10(p/[dyn cm^2])")
-        plt.ylabel("psudo-enthalpy")
-        plt.plot(p_samples, h_samples, marker="+")
+        plt.xlabel(r"$\dfrac{p}{\mathrm{dyn}/\mathrm{cm}^2}$")
+        plt.ylabel(r"$h$")
+        plt.plot(p_samples, h_samples)
         plt.show()
 
 

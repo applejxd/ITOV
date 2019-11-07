@@ -179,9 +179,9 @@ class TOVEqs2(AbsTOVEqs):
         """
         sol: Solution = self.solve_tov(xi_c)
 
-        plt.xlabel("pseudo-enthalpy")
-        plt.plot(sol.t, sol.y[0], label="mass [solar_mass]")
-        plt.plot(sol.t, sol.y[1], label="radius [km]")
+        plt.xlabel(r"$h$")
+        plt.plot(sol.t, sol.y[0], label=r"$m$ [$M_\odot$]")
+        plt.plot(sol.t, sol.y[1], label="$r$ [km]")
         plt.legend()
         plt.show()
 
