@@ -8,7 +8,7 @@ from typing import List, Any, Tuple, Union
 import matplotlib.pyplot as plt
 import sympy
 
-import numpy as np
+import numpy as  np
 from scipy import interpolate, integrate
 from scipy import optimize
 from scipy.interpolate import interp1d
