@@ -146,7 +146,8 @@ class TOVEqs(AbsTOVEqs):
 
 class TOVEqs2(AbsTOVEqs):
     """
-    擬エンタルピー関数を引数とする TOV 方程式とそのソルバーのクラス
+    擬エンタルピー関数を引数とする TOV 方程式とそのソルバーのクラス.
+    cf. http://bit.ly/2tvIyfb
     """
     enthalpy_ins: Union[PEnthalpyEoS, PEnthalpyEoS2]
     xi_c: float
