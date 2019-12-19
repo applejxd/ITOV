@@ -1,0 +1,979 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inverse TOV 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html#document-index" class="icon icon-home"> Inverse TOV
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-main">main module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-data_mod">data_mod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-tov_mod">tov_mod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-eos_mod">eos_mod module</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#document-index">Inverse TOV</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html#document-index">Docs</a> &raquo;</li>
+        
+      <li>Inverse TOV 0.1.0 documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-inverse-tov-s-documentation">
+<h1>Welcome to Inverse TOV’s documentation!<a class="headerlink" href="#welcome-to-inverse-tov-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-main"></span><div class="section" id="module-main">
+<span id="main-module"></span><h2>main module<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h2>
+</div>
+<span id="document-data_mod"></span><div class="section" id="module-data_mod">
+<span id="data-mod-module"></span><h2>data_mod module<a class="headerlink" href="#module-data_mod" title="Permalink to this headline">¶</a></h2>
+<p>質量-半径関係を作成するモジュール</p>
+<dl class="class">
+<dt id="data_mod.AbsMassRadius">
+<em class="property">class </em><code class="sig-prename descclassname">data_mod.</code><code class="sig-name descname">AbsMassRadius</code><span class="sig-paren">(</span><em class="sig-param">tov_ins=&lt;class 'tov_mod.TOVEqs2'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.AbsMassRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>質量-半径関係を生成するための抽象基底クラス</p>
+<dl class="method">
+<dt id="data_mod.AbsMassRadius.extract_radius">
+<em class="property">abstract </em><code class="sig-name descname">extract_radius</code><span class="sig-paren">(</span><em class="sig-param">sol</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.AbsMassRadius.extract_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>解から天体の半径を読み取るメソッド.
+子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sol</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – TOV方程式の解</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>天体の半径 [km]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_mod.AbsMassRadius.make_mr_data">
+<code class="sig-name descname">make_mr_data</code><span class="sig-paren">(</span><em class="sig-param">xi_min</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.AbsMassRadius.make_mr_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>質量-半径関係のデータセットを作成するメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_min</strong> – 最小密度 / [g/cm^3] の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_mod.AbsMassRadius.plot_mr">
+<code class="sig-name descname">plot_mr</code><span class="sig-paren">(</span><em class="sig-param">xi_min</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.AbsMassRadius.plot_mr" title="Permalink to this definition">¶</a></dt>
+<dd><p>質量-半径関係をプロットするメソッド</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_min</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 密度 / [g/cm^3] の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_mod.AbsMassRadius.reset_mr">
+<code class="sig-name descname">reset_mr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.AbsMassRadius.reset_mr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="data_mod.MassRadius">
+<em class="property">class </em><code class="sig-prename descclassname">data_mod.</code><code class="sig-name descname">MassRadius</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins=&lt;class 'eos_mod.IEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.MassRadius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#data_mod.AbsMassRadius" title="data_mod.AbsMassRadius"><code class="xref py py-class docutils literal notranslate"><span class="pre">data_mod.AbsMassRadius</span></code></a></p>
+<p>TOVEqs クラスのインスタンスに対応した実装</p>
+<dl class="method">
+<dt id="data_mod.MassRadius.extract_radius">
+<code class="sig-name descname">extract_radius</code><span class="sig-paren">(</span><em class="sig-param">sol</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.MassRadius.extract_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>解から天体の半径を読み取るメソッド.
+子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sol</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – TOV方程式の解</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>天体の半径 [km]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="data_mod.MassRadius2">
+<em class="property">class </em><code class="sig-prename descclassname">data_mod.</code><code class="sig-name descname">MassRadius2</code><span class="sig-paren">(</span><em class="sig-param">enthalpy_ins=&lt;class 'eos_mod.PEnthalpyEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.MassRadius2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#data_mod.AbsMassRadius" title="data_mod.AbsMassRadius"><code class="xref py py-class docutils literal notranslate"><span class="pre">data_mod.AbsMassRadius</span></code></a></p>
+<p>TOVEqs2 クラスのインスタンスに対応した実装</p>
+<dl class="method">
+<dt id="data_mod.MassRadius2.extract_radius">
+<code class="sig-name descname">extract_radius</code><span class="sig-paren">(</span><em class="sig-param">sol</em><span class="sig-paren">)</span><a class="headerlink" href="#data_mod.MassRadius2.extract_radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>解から天体の半径を読み取るメソッド.
+子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sol</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – TOV方程式の解</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>天体の半径 [km]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span id="document-tov_mod"></span><div class="section" id="module-tov_mod">
+<span id="tov-mod-module"></span><h2>tov_mod module<a class="headerlink" href="#module-tov_mod" title="Permalink to this headline">¶</a></h2>
+<p>TOV 方程式に関するモジュール</p>
+<dl class="class">
+<dt id="tov_mod.AbsTOVEqs">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">AbsTOVEqs</code><a class="headerlink" href="#tov_mod.AbsTOVEqs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>TOV 方程式とそのソルバーの抽象基底クラス</p>
+<dl class="method">
+<dt id="tov_mod.AbsTOVEqs.dy_dt">
+<em class="property">abstract </em><code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.AbsTOVEqs.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.AbsTOVEqs.solve_tov">
+<em class="property">abstract </em><code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param">xi_c</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.AbsTOVEqs.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式のソルバー</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.AbsTOVEqs.tov_demo">
+<em class="property">abstract </em><code class="sig-name descname">tov_demo</code><span class="sig-paren">(</span><em class="sig-param">xi_c</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.AbsTOVEqs.tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式のソルバーのデモ</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tov_mod.InverseTOV">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">InverseTOV</code><span class="sig-paren">(</span><em class="sig-param">enthalpy_ins=&lt;class 'eos_mod.PEnthalpyEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.InverseTOV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>逆 TOV 写像のクラス</p>
+<dl class="method">
+<dt id="tov_mod.InverseTOV.dy_dt">
+<code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.InverseTOV.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 擬エンタルピー</p></li>
+<li><p><strong>y</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – y = (m, r)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>y の導関数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.InverseTOV.inverse_tov_demo">
+<code class="sig-name descname">inverse_tov_demo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.InverseTOV.inverse_tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.InverseTOV.solve_tov">
+<code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param">mass</em>, <em class="sig-param">radius</em>, <em class="sig-param">h_i</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.InverseTOV.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tov_mod.TOVEqs">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">TOVEqs</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins=&lt;class 'eos_mod.IEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tov_mod.AbsTOVEqs" title="tov_mod.AbsTOVEqs"><code class="xref py py-class docutils literal notranslate"><span class="pre">tov_mod.AbsTOVEqs</span></code></a></p>
+<p>動径座標を引数とするTOV方程式のソルバーのクラス</p>
+<dl class="method">
+<dt id="tov_mod.TOVEqs.dy_dt">
+<code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 動径座標 r</p></li>
+<li><p><strong>y</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – 関数 y=(m, p)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>微分係数 y’=(dm/dr, dp/dr)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.TOVEqs.solve_tov">
+<code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param">xi_c</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV方程式のソルバー.
+動径座標 r を引数として r~0 からの初期値問題として解く</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 中心密度[g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>解に関連する bunch object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.TOVEqs.tov_demo">
+<code class="sig-name descname">tov_demo</code><span class="sig-paren">(</span><em class="sig-param">xi_c</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs.tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式を解いて圧力分布を表示するデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 中心密度 / [g/cm^3] の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tov_mod.TOVEqs2">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">TOVEqs2</code><span class="sig-paren">(</span><em class="sig-param">enthalpy_ins=&lt;class 'eos_mod.PEnthalpyEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tov_mod.AbsTOVEqs" title="tov_mod.AbsTOVEqs"><code class="xref py py-class docutils literal notranslate"><span class="pre">tov_mod.AbsTOVEqs</span></code></a></p>
+<p>擬エンタルピー関数を引数とする TOV 方程式とそのソルバーのクラス.
+cf. <a class="reference external" href="http://bit.ly/2tvIyfb">http://bit.ly/2tvIyfb</a></p>
+<dl class="method">
+<dt id="tov_mod.TOVEqs2.dy_dt">
+<code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs2.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 擬エンタルピー h</p></li>
+<li><p><strong>y</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – y = (m, r)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>y の導関数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.TOVEqs2.solve_tov">
+<code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param">xi_c</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs2.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式のソルバー.
+擬エンタルピー関数を引数として, 天体中心から天体表面 h~0 まで解く.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 中心密度[g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OdeSolution</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]], <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>解に関連する bunch object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="tov_mod.TOVEqs2.tov_demo">
+<code class="sig-name descname">tov_demo</code><span class="sig-paren">(</span><em class="sig-param">xi_c</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs2.tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数を引数としたTOV方程式のデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 中心密度[g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<span id="document-eos_mod"></span><div class="section" id="module-eos_mod">
+<span id="eos-mod-module"></span><h2>eos_mod module<a class="headerlink" href="#module-eos_mod" title="Permalink to this headline">¶</a></h2>
+<p>状態方程式に関するモジュール</p>
+<dl class="class">
+<dt id="eos_mod.AbsIEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">AbsIEoS</code><a class="headerlink" href="#eos_mod.AbsIEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="#eos_mod.EoS" title="eos_mod.EoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.EoS</span></code></a></p>
+<p>状態方程式の逆関数 rho=rho(p) に関する抽象基底クラス</p>
+<dl class="method">
+<dt id="eos_mod.AbsIEoS.demo_log_ieos_plot">
+<code class="sig-name descname">demo_log_ieos_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsIEoS.demo_log_ieos_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の逆関数をプロットするデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsIEoS.rho_from_p">
+<code class="sig-name descname">rho_from_p</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsIEoS.rho_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式 p=p(rho) の逆関数 rho=rho(p).
+xi_from_zeta メソッドから作成.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>密度 / [g/cm^3]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsIEoS.xi_from_zeta">
+<em class="property">abstract </em><code class="sig-name descname">xi_from_zeta</code><span class="sig-paren">(</span><em class="sig-param">zeta</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsIEoS.xi_from_zeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数の逆関数.
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>密度 / [g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="eos_mod.AbsPEnthalpyEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">AbsPEnthalpyEoS</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins=&lt;eos_mod.IEoS object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>擬エンタルピー関数と状態方程式を対応付ける抽象基底クラス</p>
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.demo_h_integrand_plot">
+<code class="sig-name descname">demo_h_integrand_plot</code><span class="sig-paren">(</span><em class="sig-param">xi_max=16.0</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.demo_h_integrand_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数をプロットするデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_max</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.demo_h_plot">
+<code class="sig-name descname">demo_h_plot</code><span class="sig-paren">(</span><em class="sig-param">xi_max</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.demo_h_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数をプロットをするデモ</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.h_from_p">
+<em class="property">abstract </em><code class="sig-name descname">h_from_p</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.h_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数 h=h(p).
+積分方法は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.h_from_rho">
+<code class="sig-name descname">h_from_rho</code><span class="sig-paren">(</span><em class="sig-param">rho</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.h_from_rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>関数 h=h(p)=h(p(rho))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rho</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 密度 / [g/cm^3]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.h_integrand">
+<em class="property">abstract </em><code class="sig-name descname">h_integrand</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.h_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.p_from_h">
+<em class="property">abstract </em><code class="sig-name descname">p_from_h</code><span class="sig-paren">(</span><em class="sig-param">h</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.p_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の逆関数 p=p(h).
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.AbsPEnthalpyEoS.rho_from_h">
+<code class="sig-name descname">rho_from_h</code><span class="sig-paren">(</span><em class="sig-param">h</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.rho_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>関数 rho=rho(p)=rho(p(h))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>密度 / [g/cm^3]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="eos_mod.EoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">EoS</code><a class="headerlink" href="#eos_mod.EoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>状態方程式 p=p(rho) とその log-log 関数 zeta=zeta(xi) に関するクラス</p>
+<dl class="method">
+<dt id="eos_mod.EoS.demo_log_eos_plot">
+<code class="sig-name descname">demo_log_eos_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.EoS.demo_log_eos_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式をプロットするデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.EoS.f0">
+<em class="property">static </em><code class="sig-name descname">f0</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.EoS.f0" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数で用いる関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.EoS.p_from_rho">
+<code class="sig-name descname">p_from_rho</code><span class="sig-paren">(</span><em class="sig-param">rho</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.EoS.p_from_rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式 p=p(rho)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rho</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 密度 / [g/cm^3]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.EoS.zeta_from_xi">
+<code class="sig-name descname">zeta_from_xi</code><span class="sig-paren">(</span><em class="sig-param">xi</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.EoS.zeta_from_xi" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式(SLy モデル)の log-log 関数.
+(cf. <a class="reference external" href="https://arxiv.org/abs/astro-ph/0408324">https://arxiv.org/abs/astro-ph/0408324</a>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 密度 / [g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.EoS.zeta_from_xi_modify">
+<code class="sig-name descname">zeta_from_xi_modify</code><span class="sig-paren">(</span><em class="sig-param">xi</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.EoS.zeta_from_xi_modify" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数の低密度側を修正(OPAL EoS)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 密度 / [g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="eos_mod.IEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">IEoS</code><span class="sig-paren">(</span><em class="sig-param">xi_max=16.0</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.IEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsIEoS" title="eos_mod.AbsIEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsIEoS</span></code></a></p>
+<p>サンプリングを用いた rho=rho(p) の構成を行うクラス</p>
+<dl class="method">
+<dt id="eos_mod.IEoS.make_ieos">
+<code class="sig-name descname">make_ieos</code><span class="sig-paren">(</span><em class="sig-param">xi_max</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.IEoS.make_ieos" title="Permalink to this definition">¶</a></dt>
+<dd><p>サンプリングと線形補間で rho=rho(p) を近似</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_max</strong> – サンプリングする最大密度 / [g/cm^3] の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.IEoS.xi_from_zeta">
+<code class="sig-name descname">xi_from_zeta</code><span class="sig-paren">(</span><em class="sig-param">zeta</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.IEoS.xi_from_zeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数の逆関数.
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>密度 / [g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="eos_mod.IEoS2">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">IEoS2</code><a class="headerlink" href="#eos_mod.IEoS2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsIEoS" title="eos_mod.AbsIEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsIEoS</span></code></a></p>
+<p>求根アルゴリズムを用いた rho=rho(p) の構成を行うクラス</p>
+<dl class="method">
+<dt id="eos_mod.IEoS2.xi_from_zeta">
+<code class="sig-name descname">xi_from_zeta</code><span class="sig-paren">(</span><em class="sig-param">zeta</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.IEoS2.xi_from_zeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>ブレント法で rho=rho(p) を求める</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>密度 / [g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="eos_mod.PEnthalpyEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">PEnthalpyEoS</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins=&lt;eos_mod.IEoS object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsPEnthalpyEoS" title="eos_mod.AbsPEnthalpyEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsPEnthalpyEoS</span></code></a></p>
+<p>サンプリングで擬エンタルピー関数 h(p) を作成するクラス</p>
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS.h_from_p">
+<code class="sig-name descname">h_from_p</code><span class="sig-paren">(</span><em class="sig-param">zeta</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS.h_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数 h=h(p).
+積分方法は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS.h_integrand">
+<code class="sig-name descname">h_integrand</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS.h_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>被積分関数の値</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS.make_eos">
+<code class="sig-name descname">make_eos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS.make_eos" title="Permalink to this definition">¶</a></dt>
+<dd><p>サンプリングと線形補間を用いてエンタルピー関数 h=h(p) と
+その逆関数 p=p(h) を作成</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS.make_h_samples">
+<code class="sig-name descname">make_h_samples</code><span class="sig-paren">(</span><em class="sig-param">p_samples</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS.make_h_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>p のサンプリング点から対応した h のサンプリング点を作成</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p_samples</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 圧力 / [dyn/cm^2] のサンプリング点</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>擬エンタルピーのサンプリング点</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS.p_from_h">
+<code class="sig-name descname">p_from_h</code><span class="sig-paren">(</span><em class="sig-param">h</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS.p_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の逆関数 p=p(h).
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="eos_mod.PEnthalpyEoS2">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">PEnthalpyEoS2</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsPEnthalpyEoS" title="eos_mod.AbsPEnthalpyEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsPEnthalpyEoS</span></code></a></p>
+<p>積分アルゴリズムで擬エンタルピー関数 h(p) を作成するクラス</p>
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS2.demo_h_integrand_plot">
+<code class="sig-name descname">demo_h_integrand_plot</code><span class="sig-paren">(</span><em class="sig-param">xi_max=16.0</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS2.demo_h_integrand_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数のプロットのデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_max</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – サンプリングする最大密度 / [g/cm^3] の常用対数</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS2.h_from_p">
+<code class="sig-name descname">h_from_p</code><span class="sig-paren">(</span><em class="sig-param">p</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS2.h_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数 h=h(p)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS2.h_integrand">
+<code class="sig-name descname">h_integrand</code><span class="sig-paren">(</span><em class="sig-param">t</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS2.h_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>二重指数関数型数値積分公式を施した被積分関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 積分パラメータ</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>被積分関数の値</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="eos_mod.PEnthalpyEoS2.p_from_h">
+<code class="sig-name descname">p_from_h</code><span class="sig-paren">(</span><em class="sig-param">h</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS2.p_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の逆関数 p=p(h).
+ブレント法で求める.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Masashi Yamazaki
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
