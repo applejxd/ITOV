@@ -15,16 +15,16 @@ if __name__ == "__main__":
     # enthalpy_ins = PEnthalpyEoS(IEoS())
     # enthalpy_ins.demo_h_integrand_plot(16.)
     # enthalpy_ins.demo_h_plot(16.)
-    #
-    # # TOV 方程式のデモ
+
+    # TOV 方程式のデモ
     # tov2_demo = tov_mod.TOVEqs2(PEnthalpyEoS(IEoS()))
     # tov2_demo.tov_demo(16.0)
 
-    # M-R 関係の生成
+    # # M-R 関係の生成
     mr2 = data_mod.MassRadius2(PEnthalpyEoS(IEoS()))
-    mr2.plot_mr(11.5)
+    mr2.plot_mr(9.)
 
-    # # TOV逆写像のデモ
+    # TOV逆写像のデモ
     # inverse_tov_ins = tov_mod.InverseTOV(PEnthalpyEoS(IEoS()))
     # inverse_tov_ins.inverse_tov_demo()
 
