@@ -1,3 +1,6 @@
+"""
+質量-半径関係を作成するモジュール
+"""
 from typing import List, Union
 from abc import ABC, abstractmethod
 
@@ -10,7 +13,7 @@ from tov_mod import Solution, TOVEqs, TOVEqs2
 
 class AbsMassRadius(ABC):
     """
-    質量-半径関係を生成・プロット
+    質量-半径関係を生成するための抽象基底クラス
     """
     tov_ins: Union[TOVEqs, TOVEqs2]
     results: np.ndarray
@@ -24,23 +27,45 @@ class AbsMassRadius(ABC):
 
     @abstractmethod
     def extract_radius(self, sol: Solution) -> float:
+        """
+        解から天体の半径を読み取るメソッド.
+        子クラスで実装.
+
+        :param sol: TOV方程式の解
+        :return: 天体の半径 [km]
+        """
         pass
 
-    def make_mr_data(self, xi_min):
-        # 中性子星
-        xi_c_samples: np.ndarray = np.arange(xi_min, 16., 2.e-2)
-        if 14.1 <= xi_min < 14.3:
-            # 中性子星と白色矮星の中間
-            xi_c_1 = np.arange(xi_min, 14.3, 1.e-3)
-            xi_c_2 = np.arange(14.3, 16., 2.e-2)
-            xi_c_samples = np.hstack([xi_c_1, xi_c_2])
-        elif xi_min < 14.1:
-            # 白色矮星
-            xi_c_1 = np.arange(xi_min, 14.1, 2.e-2)
-            xi_c_2 = np.arange(14.1, 14.3, 1.e-3)
-            xi_c_3 = np.arange(14.3, 16., 2.e-2)
-            xi_c_samples = np.hstack([xi_c_1, xi_c_2, xi_c_3])
+    def make_mr_data(self, xi_min) -> None:
+        """
+        質量-半径関係のデータセットを作成するメソッド
 
+        :param xi_min: 最小密度 / [g/cm^3] の常用対数
+        """
+        xi_c_samples: np.ndarray = np.array([])
+        xi_flag: bool = False
+
+        # サンプリング点の幅を調節する
+        if xi_min < 14.1:
+            xi_tmp = np.arange(xi_min, 14.1, 5.e-2)
+            xi_c_samples = np.hstack([xi_c_samples, xi_tmp])
+            xi_flag = True
+
+        if xi_min < 14.3:
+            if xi_flag:
+                xi_tmp = np.arange(14.1, 14.3, 1.e-3)
+            else:
+                xi_tmp = np.arange(xi_min, 14.3, 1.e-3)
+            xi_c_samples = np.hstack([xi_c_samples, xi_tmp])
+            xi_flag = True
+
+        if xi_flag:
+            xi_tmp = np.arange(14.3, 16., 1.e-2)
+        else:
+            xi_tmp = np.arange(xi_min, 16., 1.e-2)
+        xi_c_samples = np.hstack([xi_c_samples, xi_tmp])
+
+        # 質量-半径関係を作成する
         mass_tmp: List[float] = []
         radius_tmp: List[float] = []
         for xi_init in xi_c_samples:
@@ -49,18 +74,27 @@ class AbsMassRadius(ABC):
             radius_tmp.append(self.extract_radius(sol))
         self.results = np.array([xi_c_samples, mass_tmp, radius_tmp])
 
-    def plot_mr(self, xi_min: float):
+    def plot_mr(self, xi_min: float) -> None:
+        """
+        質量-半径関係をプロットするメソッド
+
+        :param xi_min: 密度 / [g/cm^3] の常用対数
+        """
         self.reset_mr()
         self.make_mr_data(xi_min)
-        plt.xlabel("radius [km]")
-        plt.ylabel("mass [m_solar]")
+        plt.xlabel(r"$R$ [km]")
+        plt.ylabel(r"$M$ [$M_\odot$]")
         plt.plot(self.results[2], self.results[1], marker="+")
         if xi_min < 14.5:
             plt.xscale('log')
+            plt.xlabel(r"$\log_{10}R$ [km]")
         plt.show()
 
 
 class MassRadius(AbsMassRadius):
+    """
+    TOVEqs クラスのインスタンスに対応した実装
+    """
     tov_eqs: TOVEqs
 
     def __init__(self, ieos_ins: Union[IEoS, IEoS2] = IEoS):
@@ -71,6 +105,9 @@ class MassRadius(AbsMassRadius):
 
 
 class MassRadius2(AbsMassRadius):
+    """
+    TOVEqs2 クラスのインスタンスに対応した実装
+    """
     tov_eqs: TOVEqs2
 
     def __init__(self, enthalpy_ins: Union[PEnthalpyEoS, PEnthalpyEoS2] = PEnthalpyEoS):
@@ -79,6 +116,8 @@ class MassRadius2(AbsMassRadius):
     def extract_radius(self, sol: Solution) -> float:
         return sol.y[1][-1]
 
+
+# TODO: 未完成
 # class MR2EoS:
 #     tov_eqs: tov_mod.TOVEqs
 #

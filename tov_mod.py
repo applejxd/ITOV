@@ -1,3 +1,7 @@
+"""
+TOV 方程式に関するモジュール
+"""
+
 import math
 from abc import ABC, abstractmethod
 from typing import List, Optional, Tuple, Iterable, Union
@@ -26,22 +30,35 @@ ZETA_CONST: float = math.log10(P_SOLAR)
 
 
 class AbsTOVEqs(ABC):
+    """
+    TOV 方程式とそのソルバーの抽象基底クラス
+    """
+
     @abstractmethod
     def dy_dt(self, t: float, y: List[float]) -> List[float]:
+        """
+        TOV 方程式
+        """
         pass
 
     @abstractmethod
     def solve_tov(self, xi_c: float) -> Solution:
+        """
+        TOV 方程式のソルバー
+        """
         pass
 
     @abstractmethod
     def tov_demo(self, xi_c: float):
+        """
+        TOV 方程式のソルバーのデモ
+        """
         pass
 
 
 class TOVEqs(AbsTOVEqs):
     """
-    TOV 方程式とそのデモ
+    動径座標を引数とするTOV方程式のソルバーのクラス
     """
     ieos_ins: Union[IEoS, IEoS2]
     p_c: float
@@ -53,9 +70,10 @@ class TOVEqs(AbsTOVEqs):
     def dy_dt(self, t: float, y: List[float]) -> List[float]:
         """
         TOV 方程式
-        :param t: 動径座標
-        :param y: y = (m, p)
-        :return: x の導関数
+
+        :param t: 動径座標 r
+        :param y: 関数 y=(m, p)
+        :return: 微分係数 y'=(dm/dr, dp/dr)
         """
         rho = self.ieos_ins.rho_from_p(y[1] * self.p_c) * C_CONST ** 2 / self.p_c
 
@@ -65,34 +83,41 @@ class TOVEqs(AbsTOVEqs):
 
     def solve_tov(self, xi_c: float) -> Solution:
         """
-        TOV方程式を初期値問題として解く
+        TOV方程式のソルバー.
+        動径座標 r を引数として r~0 からの初期値問題として解く
+
         :param xi_c: 中心密度[g/cm^3]の常用対数
         :return: 解に関連する bunch object
         """
-        self.p_c = self.ieos_ins.p_from_rho(10. ** xi_c)
+        self.p_c = self.ieos_ins.p_from_rho(10. ** xi_c)  # 中心密度を設定
 
         r_init: float = 1.e-5
-        r_span: List[float] = [r_init, 50.]
+        r_span: List[float] = [r_init, 50.]  # 積分区域(仮)
 
+        # 中心密度で無次元化
         rho_init = 10. ** xi_c * C_CONST ** 2. / self.p_c
         p_init: float = 1.
 
+        # 中心付近で初期条件を構成
         y0: List[float] = [4. / 3. * np.pi * r_init ** 3. * rho_init,
                            p_init - 2. / 3. * np.pi * (rho_init + p_init) * (rho_init + 3. * p_init) * r_init ** 2.]
 
         def is_surface(r: float, x: List[float]) -> float:
             """
             星表面(付近)で 0 になる関数
-            :param r: 半径
-            :param x: x=(m, p)
+
+            :param r: 動径座標
+            :param x: 関数 x(r)=(m(r), p(r))
             :return: 圧力 / (rho_c * C^2 [dyn/cm^2]) と cut-off の差
             """
             return x[1] - 1 / self.p_c
 
-        is_surface.terminal = True  # 条件.が0のとき終了する
-        is_surface.direction = -1  # 正から負にクロス
+        is_surface.terminal = True  # 条件が0のとき計算終了
+        is_surface.direction = -1  # 値が正から負にクロスするときにイベント感知
 
+        # 無次元量 <-> solar_mass
         m_ratio: float = C_CONST ** 4. / math.sqrt(G_CONST ** 3. * self.p_c) / M_SOLAR
+        # 無次元量 <-> km
         r_ratio: float = C_CONST ** 2. / math.sqrt(G_CONST * self.p_c) * 1.e-5
 
         # TODO: 刻み幅を最適化したい
@@ -100,15 +125,17 @@ class TOVEqs(AbsTOVEqs):
         sol: Solution = integrate.solve_ivp(self.dy_dt, r_span, y0, events=is_surface, dense_output=True,
                                             max_step=1e-3 / r_ratio, method="Radau")
 
+        # 無次元量から有次元量に
         sol.y[0] *= m_ratio  # solar_mass
         sol.t *= r_ratio  # km
-        sol.t_events = list(map(lambda t: t*r_ratio, sol.t_events))
+        sol.t_events = list(map(lambda t: t * r_ratio, sol.t_events))
         return sol
 
     def tov_demo(self, xi_c: float):
         """
         TOV 方程式を解いて圧力分布を表示するデモ
-        :param xi_c: 密度[g/cm^3] の常用対数
+
+        :param xi_c: 中心密度 / [g/cm^3] の常用対数
         """
         plt.xlabel("radius [km]")
         # plt.yscale("log")
@@ -119,7 +146,7 @@ class TOVEqs(AbsTOVEqs):
 
 class TOVEqs2(AbsTOVEqs):
     """
-    擬エンタルピー関数を引数とした TOV 方程式とそのデモ
+    擬エンタルピー関数を引数とする TOV 方程式とそのソルバーのクラス
     """
     enthalpy_ins: Union[PEnthalpyEoS, PEnthalpyEoS2]
     xi_c: float
@@ -131,7 +158,8 @@ class TOVEqs2(AbsTOVEqs):
     def dy_dt(self, t: float, y: List[float]) -> List[float]:
         """
         TOV 方程式
-        :param t: 擬エンタルピー
+
+        :param t: 擬エンタルピー h
         :param y: y = (m, r)
         :return: y の導関数
         """
@@ -144,27 +172,34 @@ class TOVEqs2(AbsTOVEqs):
 
     def solve_tov(self, xi_c: float) -> Solution:
         """
-        擬エンタルピー関数を引数とした TOV 方程式を解く
+        TOV 方程式のソルバー.
+        擬エンタルピー関数を引数として, 天体中心から天体表面 h~0 まで解く.
+
         :param xi_c: 中心密度[g/cm^3]の常用対数
         :return: 解に関連する bunch object
         """
         self.xi_c = xi_c
 
-        h_c: float = self.enthalpy_ins.h_from_rho(10**self.xi_c)
+        # 天体中心の擬エンタルピー
+        h_c: float = self.enthalpy_ins.h_from_rho(10 ** self.xi_c)
+
+        # 積分区域
         h_diff: float = h_c * 1.e-2
         h_span: List[float] = [h_c - h_diff, 0.]
 
+        # 中心密度で規格化
         rho_c = 1.
         p_c: float = self.enthalpy_ins.p_from_h(h_c) / (10 ** xi_c * C_CONST ** 2)
 
-        # 星中心付近で初期条件を構成
+        # 天体中心付近で初期条件を構成
         r_init: float = math.sqrt(3 * h_diff / (2 * np.pi) / (rho_c + 3 * p_c))
-        m_init: float = 4/3 * np.pi * rho_c * r_init ** 3
+        m_init: float = 4 / 3 * np.pi * rho_c * r_init ** 3
         y0: List[float] = [m_init, r_init]
 
         sol: Solution = integrate.solve_ivp(self.dy_dt, h_span, y0, first_step=h_diff,
                                             max_step=(h_span[0] - h_span[1]) / 50)
 
+        # 無次元量から有次元量に
         m_ratio: float = C_CONST ** 3 / math.sqrt(G_CONST ** 3 * 10 ** xi_c) / M_SOLAR
         r_ratio: float = C_CONST / math.sqrt(G_CONST * 10 ** xi_c) * 1e-5
         sol.y[0] *= m_ratio  # solar_mass
@@ -172,55 +207,68 @@ class TOVEqs2(AbsTOVEqs):
 
         return sol
 
-    def tov_demo(self, xi_c: float):
+    def tov_demo(self, xi_c: float) -> None:
         """
         擬エンタルピー関数を引数としたTOV方程式のデモ
+
         :param xi_c: 中心密度[g/cm^3]の常用対数
         """
         sol: Solution = self.solve_tov(xi_c)
 
-        plt.xlabel("pseudo-enthalpy")
-        plt.plot(sol.t, sol.y[0], label="mass [solar_mass]")
-        plt.plot(sol.t, sol.y[1], label="radius [km]")
+        plt.xlabel(r"$h$")
+        plt.plot(sol.t, sol.y[0], label=r"$m$ [$M_\odot$]")
+        plt.plot(sol.t, sol.y[1], label="$r$ [km]")
         plt.legend()
         plt.show()
 
 
+# TODO: 未完成
 class InverseTOV:
+    """
+    逆 TOV 写像のクラス
+    """
     enthalpy_ins: Union[PEnthalpyEoS, PEnthalpyEoS2]
+    mass: float
+    radius: float
 
     def __init__(self, enthalpy_ins: Union[PEnthalpyEoS, PEnthalpyEoS2] = PEnthalpyEoS):
         self.enthalpy_ins = enthalpy_ins
+        self.mass = 2.
+        self.radius = 10.
 
     def dy_dt(self, t: float, y: List[float]) -> List[float]:
         """
         TOV 方程式
+
         :param t: 擬エンタルピー
         :param y: y = (m, r)
         :return: y の導関数
         """
-        rho = self.enthalpy_ins.rho_from_h(t) / RHO_SOLAR
-        p = self.enthalpy_ins.p_from_h(t) / P_SOLAR
+        rho_norm: float = self.mass * M_SOLAR / (self.radius * 1.e+5) ** 3  # g/cm^3
+        rho = self.enthalpy_ins.rho_from_h(t) / rho_norm  # dimensionless
+        p = self.enthalpy_ins.p_from_h(t) / (rho_norm * C_CONST ** 2)  # dimensionless
 
         dr_dh: float = -y[1] * (y[1] - 2 * y[0]) / (y[0] + 4 * np.pi * y[1] ** 3 * p)
         dm_dh: float = 4 * np.pi * rho * y[1] ** 2 * dr_dh
         return [dm_dh, dr_dh]
 
     def solve_tov(self, mass: float, radius: float, h_i: float) -> Solution:
-        radius *= 1.e+5 / R_G
+        self.mass = mass
+        self.radius = radius
 
         t_span: List[float] = [0., h_i]
-        y0: List[float] = [mass, radius]
+        y0: List[float] = [1., 1.]
 
         sol: Solution = integrate.solve_ivp(self.dy_dt, t_span, y0, max_step=(t_span[1] - t_span[0]) / 50)
 
-        sol.y[1] *= R_G * 1.e-5  # km
+        sol.y[0] *= self.mass
+        sol.y[1] *= self.radius
 
         return sol
 
     def inverse_tov_demo(self):
         plt.xlabel("pseudo-enthalpy")
-        sol = self.solve_tov(2., 10., 0.7)
+        sol = self.solve_tov(2., 8., 1.5)
         plt.plot(sol.t, sol.y[0], label="mass [solar_mass]")
         plt.plot(sol.t, sol.y[1], label="radius [km]")
         plt.legend()
