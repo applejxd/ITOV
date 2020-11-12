@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>eos_mod module &mdash; ITOV  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tov_mod module" href="tov_mod.html" />
+    <link rel="prev" title="Welcome to ITOV’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ITOV
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">eos_mod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tov_mod.html">tov_mod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_mod.html">data_mod module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ITOV</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>eos_mod module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/eos_mod.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-eos_mod">
+<span id="eos-mod-module"></span><h1>eos_mod module<a class="headerlink" href="#module-eos_mod" title="Permalink to this headline">¶</a></h1>
+<p>状態方程式に関するモジュール</p>
+<dl class="py class">
+<dt id="eos_mod.AbsIEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">AbsIEoS</code><a class="headerlink" href="#eos_mod.AbsIEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code>, <a class="reference internal" href="#eos_mod.EoS" title="eos_mod.EoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.EoS</span></code></a></p>
+<p>状態方程式の逆関数 rho=rho(p) に関する抽象基底クラス</p>
+<dl class="py method">
+<dt id="eos_mod.AbsIEoS.demo_log_ieos_plot">
+<code class="sig-name descname">demo_log_ieos_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#eos_mod.AbsIEoS.demo_log_ieos_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の逆関数をプロットするデモ</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsIEoS.rho_from_p">
+<code class="sig-name descname">rho_from_p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsIEoS.rho_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式 p=p(rho) の逆関数 rho=rho(p).
+xi_from_zeta メソッドから作成.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>密度 / [g/cm^3]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsIEoS.xi_from_zeta">
+<em class="property">abstract </em><code class="sig-name descname">xi_from_zeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zeta</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsIEoS.xi_from_zeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数の逆関数.
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> – 圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>密度 / [g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="eos_mod.AbsPEnthalpyEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">AbsPEnthalpyEoS</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins: Union[eos_mod.IEoS</em>, <em class="sig-param">eos_mod.IEoS2] = &lt;eos_mod.IEoS object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>擬エンタルピー関数と状態方程式を対応付ける抽象基底クラス</p>
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.demo_h_integrand_plot">
+<code class="sig-name descname">demo_h_integrand_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_max</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">16.0</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.demo_h_integrand_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数をプロットするデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_max</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.demo_h_plot">
+<code class="sig-name descname">demo_h_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_max</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.demo_h_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数をプロットをするデモ</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.h_from_p">
+<em class="property">abstract </em><code class="sig-name descname">h_from_p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.h_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数 h=h(p).
+積分方法は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.h_from_rho">
+<code class="sig-name descname">h_from_rho</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rho</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.h_from_rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>関数 h=h(p)=h(p(rho))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rho</strong> – 密度 / [g/cm^3]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.h_integrand">
+<em class="property">abstract </em><code class="sig-name descname">h_integrand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.h_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="eos_mod.AbsPEnthalpyEoS.ieos_ins">
+<code class="sig-name descname">ieos_ins</code><em class="property">: Union<span class="p">[</span><a class="reference internal" href="#eos_mod.IEoS" title="eos_mod.IEoS">eos_mod.IEoS</a><span class="p">, </span><a class="reference internal" href="#eos_mod.IEoS2" title="eos_mod.IEoS2">eos_mod.IEoS2</a><span class="p">]</span></em><a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.ieos_ins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.p_from_h">
+<em class="property">abstract </em><code class="sig-name descname">p_from_h</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.p_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の逆関数 p=p(h).
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.AbsPEnthalpyEoS.rho_from_h">
+<code class="sig-name descname">rho_from_h</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.AbsPEnthalpyEoS.rho_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>関数 rho=rho(p)=rho(p(h))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>密度 / [g/cm^3]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="eos_mod.EoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">EoS</code><a class="headerlink" href="#eos_mod.EoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>状態方程式 p=p(rho) とその log-log 関数 zeta=zeta(xi) に関するクラス</p>
+<dl class="py method">
+<dt id="eos_mod.EoS.demo_log_eos_plot">
+<code class="sig-name descname">demo_log_eos_plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#eos_mod.EoS.demo_log_eos_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式をプロットするデモ</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.EoS.f0">
+<em class="property">static </em><code class="sig-name descname">f0</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.EoS.f0" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数で用いる関数</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.EoS.p_from_rho">
+<code class="sig-name descname">p_from_rho</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rho</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.EoS.p_from_rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式 p=p(rho)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rho</strong> – 密度 / [g/cm^3]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.EoS.zeta_from_xi">
+<code class="sig-name descname">zeta_from_xi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.EoS.zeta_from_xi" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式(SLy モデル)の log-log 関数.
+(cf. <a class="reference external" href="https://arxiv.org/abs/astro-ph/0408324">https://arxiv.org/abs/astro-ph/0408324</a>)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi</strong> – 密度 / [g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.EoS.zeta_from_xi_modify">
+<code class="sig-name descname">zeta_from_xi_modify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.EoS.zeta_from_xi_modify" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数の低密度側を修正(OPAL EoS)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi</strong> – 密度 / [g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="eos_mod.IEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">IEoS</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_max</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">16.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.IEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsIEoS" title="eos_mod.AbsIEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsIEoS</span></code></a></p>
+<p>サンプリングを用いた rho=rho(p) の構成を行うクラス</p>
+<dl class="py method">
+<dt id="eos_mod.IEoS.make_ieos">
+<code class="sig-name descname">make_ieos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_max</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#eos_mod.IEoS.make_ieos" title="Permalink to this definition">¶</a></dt>
+<dd><p>サンプリングと線形補間で rho=rho(p) を近似</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_max</strong> – サンプリングする最大密度 / [g/cm^3] の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.IEoS.xi_from_zeta">
+<code class="sig-name descname">xi_from_zeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zeta</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.IEoS.xi_from_zeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>状態方程式の log-log 関数の逆関数.
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> – 圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>密度 / [g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="eos_mod.IEoS2">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">IEoS2</code><a class="headerlink" href="#eos_mod.IEoS2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsIEoS" title="eos_mod.AbsIEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsIEoS</span></code></a></p>
+<p>求根アルゴリズムを用いた rho=rho(p) の構成を行うクラス</p>
+<dl class="py method">
+<dt id="eos_mod.IEoS2.xi_from_zeta">
+<code class="sig-name descname">xi_from_zeta</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zeta</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.IEoS2.xi_from_zeta" title="Permalink to this definition">¶</a></dt>
+<dd><p>ブレント法で rho=rho(p) を求める</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> – 圧力 / [dyn/cm^2]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>密度 / [g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="eos_mod.PEnthalpyEoS">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">PEnthalpyEoS</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins=&lt;eos_mod.IEoS object&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsPEnthalpyEoS" title="eos_mod.AbsPEnthalpyEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsPEnthalpyEoS</span></code></a></p>
+<p>サンプリングで擬エンタルピー関数 h(p) を作成するクラス</p>
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS.h_from_p">
+<code class="sig-name descname">h_from_p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zeta</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.PEnthalpyEoS.h_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数 h=h(p).
+積分方法は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS.h_integrand">
+<code class="sig-name descname">h_integrand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.PEnthalpyEoS.h_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>被積分関数の値</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS.make_eos">
+<code class="sig-name descname">make_eos</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#eos_mod.PEnthalpyEoS.make_eos" title="Permalink to this definition">¶</a></dt>
+<dd><p>サンプリングと線形補間を用いてエンタルピー関数 h=h(p) と
+その逆関数 p=p(h) を作成</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS.make_h_samples">
+<code class="sig-name descname">make_h_samples</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p_samples</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#eos_mod.PEnthalpyEoS.make_h_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>p のサンプリング点から対応した h のサンプリング点を作成</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p_samples</strong> – 圧力 / [dyn/cm^2] のサンプリング点</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>擬エンタルピーのサンプリング点</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS.p_from_h">
+<code class="sig-name descname">p_from_h</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.PEnthalpyEoS.p_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の逆関数 p=p(h).
+逆関数の求め方は子クラスで実装.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="eos_mod.PEnthalpyEoS2">
+<em class="property">class </em><code class="sig-prename descclassname">eos_mod.</code><code class="sig-name descname">PEnthalpyEoS2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ieos_ins</span></em><span class="sig-paren">)</span><a class="headerlink" href="#eos_mod.PEnthalpyEoS2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#eos_mod.AbsPEnthalpyEoS" title="eos_mod.AbsPEnthalpyEoS"><code class="xref py py-class docutils literal notranslate"><span class="pre">eos_mod.AbsPEnthalpyEoS</span></code></a></p>
+<p>積分アルゴリズムで擬エンタルピー関数 h(p) を作成するクラス</p>
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS2.demo_h_integrand_plot">
+<code class="sig-name descname">demo_h_integrand_plot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_max</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">16.0</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#eos_mod.PEnthalpyEoS2.demo_h_integrand_plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の被積分関数のプロットのデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_max</strong> – サンプリングする最大密度 / [g/cm^3] の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS2.h_from_p">
+<code class="sig-name descname">h_from_p</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.PEnthalpyEoS2.h_from_p" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数 h=h(p)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>p</strong> – 圧力 / [dyn/cm^2]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>擬エンタルピー(無次元)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS2.h_integrand">
+<code class="sig-name descname">h_integrand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.PEnthalpyEoS2.h_integrand" title="Permalink to this definition">¶</a></dt>
+<dd><p>二重指数関数型数値積分公式を施した被積分関数</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> – 積分パラメータ</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>被積分関数の値</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="eos_mod.PEnthalpyEoS2.p_from_h">
+<code class="sig-name descname">p_from_h</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#eos_mod.PEnthalpyEoS2.p_from_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数の逆関数 p=p(h).
+ブレント法で求める.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>h</strong> – 擬エンタルピー(無次元)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>圧力 / [dyn/cm^2]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="eos_mod.PEnthalpyEoS2.zeta_max">
+<code class="sig-name descname">zeta_max</code><em class="property">: float</em><a class="headerlink" href="#eos_mod.PEnthalpyEoS2.zeta_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="eos_mod.PEnthalpyEoS2.zeta_min">
+<code class="sig-name descname">zeta_min</code><em class="property">: float</em><a class="headerlink" href="#eos_mod.PEnthalpyEoS2.zeta_min" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tov_mod.html" class="btn btn-neutral float-right" title="tov_mod module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to ITOV’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, applejxd
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

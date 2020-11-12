@@ -1,20 +1,18 @@
-.. Inverse TOV documentation master file, created by
-   sphinx-quickstart on Tue Dec 17 20:47:16 2019.
+.. ITOV documentation master file, created by
+   sphinx-quickstart on Thu Nov 12 22:14:08 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Inverse TOV's documentation!
-=======================================
+Welcome to ITOV's documentation!
+================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   main
-   data_mod
-   tov_mod
    eos_mod
-
+   tov_mod
+   data_mod
 
 Indices and tables
 ==================

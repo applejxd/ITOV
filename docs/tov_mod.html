@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tov_mod module &mdash; ITOV  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="data_mod module" href="data_mod.html" />
+    <link rel="prev" title="eos_mod module" href="eos_mod.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ITOV
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="eos_mod.html">eos_mod module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">tov_mod module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_mod.html">data_mod module</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ITOV</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>tov_mod module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tov_mod.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-tov_mod">
+<span id="tov-mod-module"></span><h1>tov_mod module<a class="headerlink" href="#module-tov_mod" title="Permalink to this headline">¶</a></h1>
+<p>TOV 方程式に関するモジュール</p>
+<dl class="py class">
+<dt id="tov_mod.AbsTOVEqs">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">AbsTOVEqs</code><a class="headerlink" href="#tov_mod.AbsTOVEqs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>TOV 方程式とそのソルバーの抽象基底クラス</p>
+<dl class="py method">
+<dt id="tov_mod.AbsTOVEqs.dy_dt">
+<em class="property">abstract </em><code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">y</span><span class="p">:</span> <span class="n">List<span class="p">[</span>float<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#tov_mod.AbsTOVEqs.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.AbsTOVEqs.solve_tov">
+<em class="property">abstract </em><code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_c</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">, </span>Optional<span class="p">[</span>scipy.integrate._ivp.common.OdeSolution<span class="p">]</span><span class="p">, </span>Optional<span class="p">[</span>Iterable<span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">]</span><span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>str<span class="p">, </span>bool<span class="p">]</span><a class="headerlink" href="#tov_mod.AbsTOVEqs.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式のソルバー</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.AbsTOVEqs.tov_demo">
+<em class="property">abstract </em><code class="sig-name descname">tov_demo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_c</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.AbsTOVEqs.tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式のソルバーのデモ</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tov_mod.InverseTOV">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">InverseTOV</code><span class="sig-paren">(</span><em class="sig-param">enthalpy_ins: Union[eos_mod.PEnthalpyEoS</em>, <em class="sig-param">eos_mod.PEnthalpyEoS2] = &lt;class 'eos_mod.PEnthalpyEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.InverseTOV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>逆 TOV 写像のクラス</p>
+<dl class="py method">
+<dt id="tov_mod.InverseTOV.dy_dt">
+<code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">y</span><span class="p">:</span> <span class="n">List<span class="p">[</span>float<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#tov_mod.InverseTOV.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – 擬エンタルピー</p></li>
+<li><p><strong>y</strong> – y = (m, r)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>y の導関数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.InverseTOV.enthalpy_ins">
+<code class="sig-name descname">enthalpy_ins</code><em class="property">: Union<span class="p">[</span><a class="reference internal" href="eos_mod.html#eos_mod.PEnthalpyEoS" title="eos_mod.PEnthalpyEoS">eos_mod.PEnthalpyEoS</a><span class="p">, </span><a class="reference internal" href="eos_mod.html#eos_mod.PEnthalpyEoS2" title="eos_mod.PEnthalpyEoS2">eos_mod.PEnthalpyEoS2</a><span class="p">]</span></em><a class="headerlink" href="#tov_mod.InverseTOV.enthalpy_ins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.InverseTOV.inverse_tov_demo">
+<code class="sig-name descname">inverse_tov_demo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.InverseTOV.inverse_tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.InverseTOV.mass">
+<code class="sig-name descname">mass</code><em class="property">: float</em><a class="headerlink" href="#tov_mod.InverseTOV.mass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.InverseTOV.radius">
+<code class="sig-name descname">radius</code><em class="property">: float</em><a class="headerlink" href="#tov_mod.InverseTOV.radius" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.InverseTOV.solve_tov">
+<code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mass</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">radius</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">h_i</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">, </span>Optional<span class="p">[</span>scipy.integrate._ivp.common.OdeSolution<span class="p">]</span><span class="p">, </span>Optional<span class="p">[</span>Iterable<span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">]</span><span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>str<span class="p">, </span>bool<span class="p">]</span><a class="headerlink" href="#tov_mod.InverseTOV.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tov_mod.TOVEqs">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">TOVEqs</code><span class="sig-paren">(</span><em class="sig-param">ieos_ins: Union[eos_mod.IEoS</em>, <em class="sig-param">eos_mod.IEoS2] = &lt;class 'eos_mod.IEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tov_mod.AbsTOVEqs" title="tov_mod.AbsTOVEqs"><code class="xref py py-class docutils literal notranslate"><span class="pre">tov_mod.AbsTOVEqs</span></code></a></p>
+<p>動径座標を引数とするTOV方程式のソルバーのクラス</p>
+<dl class="py method">
+<dt id="tov_mod.TOVEqs.dy_dt">
+<code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">y</span><span class="p">:</span> <span class="n">List<span class="p">[</span>float<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#tov_mod.TOVEqs.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – 動径座標 r</p></li>
+<li><p><strong>y</strong> – 関数 y=(m, p)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>微分係数 y’=(dm/dr, dp/dr)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.TOVEqs.ieos_ins">
+<code class="sig-name descname">ieos_ins</code><em class="property">: Union<span class="p">[</span><a class="reference internal" href="eos_mod.html#eos_mod.IEoS" title="eos_mod.IEoS">eos_mod.IEoS</a><span class="p">, </span><a class="reference internal" href="eos_mod.html#eos_mod.IEoS2" title="eos_mod.IEoS2">eos_mod.IEoS2</a><span class="p">]</span></em><a class="headerlink" href="#tov_mod.TOVEqs.ieos_ins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.TOVEqs.p_c">
+<code class="sig-name descname">p_c</code><em class="property">: float</em><a class="headerlink" href="#tov_mod.TOVEqs.p_c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.TOVEqs.solve_tov">
+<code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_c</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">, </span>Optional<span class="p">[</span>scipy.integrate._ivp.common.OdeSolution<span class="p">]</span><span class="p">, </span>Optional<span class="p">[</span>Iterable<span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">]</span><span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>str<span class="p">, </span>bool<span class="p">]</span><a class="headerlink" href="#tov_mod.TOVEqs.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV方程式のソルバー.
+動径座標 r を引数として r~0 からの初期値問題として解く</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> – 中心密度[g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>解に関連する bunch object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.TOVEqs.tov_demo">
+<code class="sig-name descname">tov_demo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_c</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs.tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式を解いて圧力分布を表示するデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> – 中心密度 / [g/cm^3] の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="tov_mod.TOVEqs2">
+<em class="property">class </em><code class="sig-prename descclassname">tov_mod.</code><code class="sig-name descname">TOVEqs2</code><span class="sig-paren">(</span><em class="sig-param">enthalpy_ins: Union[eos_mod.PEnthalpyEoS</em>, <em class="sig-param">eos_mod.PEnthalpyEoS2] = &lt;class 'eos_mod.PEnthalpyEoS'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#tov_mod.TOVEqs2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#tov_mod.AbsTOVEqs" title="tov_mod.AbsTOVEqs"><code class="xref py py-class docutils literal notranslate"><span class="pre">tov_mod.AbsTOVEqs</span></code></a></p>
+<p>擬エンタルピー関数を引数とする TOV 方程式とそのソルバーのクラス.
+cf. <a class="reference external" href="http://bit.ly/2tvIyfb">http://bit.ly/2tvIyfb</a></p>
+<dl class="py method">
+<dt id="tov_mod.TOVEqs2.dy_dt">
+<code class="sig-name descname">dy_dt</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">t</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">y</span><span class="p">:</span> <span class="n">List<span class="p">[</span>float<span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>float<span class="p">]</span><a class="headerlink" href="#tov_mod.TOVEqs2.dy_dt" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>t</strong> – 擬エンタルピー h</p></li>
+<li><p><strong>y</strong> – y = (m, r)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>y の導関数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.TOVEqs2.enthalpy_ins">
+<code class="sig-name descname">enthalpy_ins</code><em class="property">: Union<span class="p">[</span><a class="reference internal" href="eos_mod.html#eos_mod.PEnthalpyEoS" title="eos_mod.PEnthalpyEoS">eos_mod.PEnthalpyEoS</a><span class="p">, </span><a class="reference internal" href="eos_mod.html#eos_mod.PEnthalpyEoS2" title="eos_mod.PEnthalpyEoS2">eos_mod.PEnthalpyEoS2</a><span class="p">]</span></em><a class="headerlink" href="#tov_mod.TOVEqs2.enthalpy_ins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.TOVEqs2.solve_tov">
+<code class="sig-name descname">solve_tov</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_c</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>numpy.ndarray<span class="p">, </span>numpy.ndarray<span class="p">, </span>Optional<span class="p">[</span>scipy.integrate._ivp.common.OdeSolution<span class="p">]</span><span class="p">, </span>Optional<span class="p">[</span>Iterable<span class="p">[</span>numpy.ndarray<span class="p">]</span><span class="p">]</span><span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>int<span class="p">, </span>str<span class="p">, </span>bool<span class="p">]</span><a class="headerlink" href="#tov_mod.TOVEqs2.solve_tov" title="Permalink to this definition">¶</a></dt>
+<dd><p>TOV 方程式のソルバー.
+擬エンタルピー関数を引数として, 天体中心から天体表面 h~0 まで解く.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> – 中心密度[g/cm^3]の常用対数</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>解に関連する bunch object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="tov_mod.TOVEqs2.tov_demo">
+<code class="sig-name descname">tov_demo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">xi_c</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#tov_mod.TOVEqs2.tov_demo" title="Permalink to this definition">¶</a></dt>
+<dd><p>擬エンタルピー関数を引数としたTOV方程式のデモ</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>xi_c</strong> – 中心密度[g/cm^3]の常用対数</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="tov_mod.TOVEqs2.xi_c">
+<code class="sig-name descname">xi_c</code><em class="property">: float</em><a class="headerlink" href="#tov_mod.TOVEqs2.xi_c" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data_mod.html" class="btn btn-neutral float-right" title="data_mod module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="eos_mod.html" class="btn btn-neutral float-left" title="eos_mod module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, applejxd
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

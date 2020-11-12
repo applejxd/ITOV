@@ -17,12 +17,9 @@ sys.path.insert(0, os.path.abspath('../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Inverse TOV'
-copyright = '2019, Masashi Yamazaki'
-author = 'Masashi Yamazaki'
-
-# The full version, including alpha/beta/rc tags
-release = '0.1.0'
+project = 'ITOV'
+copyright = '2020, applejxd'
+author = 'applejxd'
 
 
 # -- General configuration ---------------------------------------------------
@@ -30,7 +27,7 @@ release = '0.1.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx_autodoc_typehints', 'sphinx.ext.viewcode'
+extensions = ['sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
