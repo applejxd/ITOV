@@ -1,18 +1,16 @@
 [[source]]
-name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
-[dev-packages]
+name = "pypi"
 
 [packages]
-<<<<<<< HEAD
 numpy = "*"
-=======
->>>>>>> release/0.1.1
 matplotlib = "*"
-scipy = "*"
 sympy = "*"
+scipy = "*"
+
+[dev-packages]
+pylint = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.6"
